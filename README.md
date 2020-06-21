@@ -24,7 +24,7 @@ The user should be able to:
 
   * Add new exercises to a new workout plan.
 
-  * View multiple the combined weight of multiple exercises on the `stats` page.
+  *  Add new exercises to a new workout plan. on the `stats` page.
 
 ## Commit Early and Often
 
