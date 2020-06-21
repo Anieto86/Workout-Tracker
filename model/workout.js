@@ -41,7 +41,7 @@ const workoutSchema = new Schema({
 //     {
 //       type: String,
 //       name: String,
-//       duration: Number,
+//       duration: Number, 
 //       weight:  Number,
 //       reps:  Number,
 //       sets:  Number
