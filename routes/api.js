@@ -5,8 +5,9 @@ const workout = require("../models/workout.js");
 const exercise = require("../models/exercise.js");
 //Routes
 
-// Add new workouts to a new workout plan.
 
+
+// Add new workouts to a new workout plan.
 router.post('/api/workout', (req, res) => {
     console.log(req.body);  
     workout.insertMany(req.body, (err, data) => {
@@ -18,6 +19,9 @@ router.post('/api/workout', (req, res) => {
     });
   });
 
+
+
+//Find workout plan.
 
   router.get('/api/workout', (req, res) => {
     workout.find({}, (err, data) => {
@@ -44,8 +48,9 @@ router.post('/api/exercise', (req, res) => {
     });
   });
 
-  
-  
+
+
+  //Find exercise plan.
   router.get('/api/exercise', (req, res) => {
     exercise.find({}, (err, data) => {
       if (err) {
@@ -73,8 +78,5 @@ router.post('/api/exercise', (req, res) => {
     });
   });
   
-
-
-
 
   module.exports = router;
