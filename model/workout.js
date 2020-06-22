@@ -7,18 +7,14 @@ const workoutSchema = new Schema({
     day:{
         type: Number,
     },
-    
-    
     Exercises: [{
-        type: {
-            type: String,
-        },
         name: {
             type: String,
+            trim: true,
         },
-        duration: {
-            type: Number,
-            required: "Time",
+        type: {
+            type: String,
+            trim: true,
         },
         weight: {
             type: Number,
@@ -30,6 +26,27 @@ const workoutSchema = new Schema({
         sets: {
             type: Number,
             required: "Number of Sets"
+        },      
+        duration: {
+            type: Number,
+            required: "Time",
+            dafaulut:Date.now,
+        },
+    }],
+
+    cardioExercises: [{
+        name: {
+            type: String,
+            trim: true,
+            },
+        duration: {
+            type: Number,
+            required: "Time",
+            dafaulut:Date.now,
+        },
+        distance: {
+            type: Number,
+            required: "Distance"
         }
     }]
 });
