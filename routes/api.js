@@ -3,7 +3,7 @@
 // Practice the routing folloow the exercise 26. 
 const router = require("express").Router();
 const workout = require("../models/workout.js");
-const exercise = require("../models/newexercise.js");
+const exercise = require("../models/exercise.js");
 //Routes
 
 // Add new workouts to a new workout plan.
@@ -22,7 +22,7 @@ router.post('/api/workout', (req, res) => {
   
   //Add  exercises  to a previous workout plan.
   
-router.post('/api/NewExercise', (req, res) => {
+router.post('/api/Exercise', (req, res) => {
     console.log(req.body);  
     workout.insert(req.body, (err, data) => {
       if (err) {
@@ -46,5 +46,7 @@ router.post('/api/NewExercise', (req, res) => {
       }
     });
   });
+  
+
   
   module.exports = router;
