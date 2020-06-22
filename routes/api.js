@@ -1,5 +1,4 @@
 
-// Do I need it? or I can do the the reoutes in the Server check!! .
 // Practice the routing folloow the exercise 26. 
 const router = require("express").Router();
 const workout = require("../models/workout.js");
@@ -18,13 +17,25 @@ router.post('/api/workout', (req, res) => {
       }
     });
   });
+
+
+  router.get('/api/workout', (req, res) => {
+    workout.find({}, (err, data) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.json(data);
+      }
+    });
+  });
+
   
   
   //Add  exercises  to a previous workout plan.
   
-router.post('/api/Exercise', (req, res) => {
+router.post('/api/exercise', (req, res) => {
     console.log(req.body);  
-    workout.insert(req.body, (err, data) => {
+    exercise.insert(req.body, (err, data) => {
       if (err) {
         console.log(err);
       } else {
@@ -32,7 +43,22 @@ router.post('/api/Exercise', (req, res) => {
       }
     });
   });
+
   
+  
+  router.get('/api/exercise', (req, res) => {
+    exercise.find({}, (err, data) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.json(data);
+      }
+    });
+  });
+
+
+
+
   
   //Add new exercise to a new workout plan (stats -page)
   
@@ -48,5 +74,7 @@ router.post('/api/Exercise', (req, res) => {
   });
   
 
-  
+
+
+
   module.exports = router;
