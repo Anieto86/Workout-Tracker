@@ -2,9 +2,7 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-const excersiceSchema = new Schema({
-
-    Exercise: [{
+const newexcersiceSchema = new Schema({
         name: {
             type: String,
             trim: true,
@@ -13,11 +11,10 @@ const excersiceSchema = new Schema({
             type: String,
             trim: true,
         },
-    }],
 });
 
 
-const excersiceSchema = mongoose.model("excersice", excersiceSchema);
+const NewExercise = mongoose.model("excersice", newexcersiceSchema);
 
 
-module.exports = excersice;
+module.exports = NewExercise;
