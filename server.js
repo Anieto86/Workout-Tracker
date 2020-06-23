@@ -14,52 +14,18 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+// esta linea de codigo evita que escribas todas las rutas para hacer el render de html!! solo tiene que usar las api.js routes 
+//this code line avoid you to write all the paths to render html!! just use the api.js paths
 app.use(express.static("public" , {
     extensions: ["html"]
 }));
+
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {
   useNewUrlParser: true,
   useFindAndModify: false
 });
 
-
-// //Routes
-
-// // Add new exercises to a new workout plan.
-
-// app.post('/workout', (req, res) => {
-//   console.log(req.body);  
-//   db.workouts.insert(req.body, (err, data) => {
-//     if (err) {
-//       console.log(err);
-//     } else {
-//       res.send(data);
-//     }
-//   });
-// });
-
-
-// //Add workouts to a previous workout plan.
-
-// app.post('/exercise', (req, res) => {
-//   console.log(req.body);  
-//   db.exercises.insert(req.body, (err, data) => {
-//     if (err) {
-//       console.log(err);
-//     } else {
-//       res.send(data);
-//     }
-//   });
-// });
-
-
-// //Add new exercises to a new workout plan (stats -page)
-
-
-// app.get('/stats', (req, res) => {
-
-// });
 
 
 // routes
