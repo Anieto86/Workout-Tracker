@@ -6,13 +6,12 @@ const workout = require("../models/workout.js");
 // This routes are sedingned using the api.js folder in public!!
 
 // Using ID 
-//The ObjectId returns the id object created by mongoDB
+//The ObjectId returns the id object created by mongoDB // why is no necesary the ObjectId? 
 router.put('/api/workouts/:id', (req, res) => {
   console.log(req.params.id);
-
   workout.updateOne(
     {
-      _id: req.params.id
+      id:req.params.id   //the problem was _id when I remove "_" in id the 
     }
     , (err, data) => {
       if (err) {
@@ -25,7 +24,6 @@ router.put('/api/workouts/:id', (req, res) => {
 });
 
 router.post('/api/workouts', (req, res) => {
-  console.log(body);
   console.log(req.body);
   workout.create(req.body, (err, data) => {
     if (err) {
@@ -50,13 +48,14 @@ router.get('/api/workouts', (req, res) => {
   });
 });
 
-//Add new exercise to a new workout plan (stats -page)
+//Find workout plan (stats -page)
 
-router.post('/api/stats', (req, res) => {
+router.get('/api/stats', (req, res) => {
   workout.find({}, (err, data) => {
     if (err) {
       res.send(err);
     } else {
+      console.log(data);
       res.json(data);
     }
   });
