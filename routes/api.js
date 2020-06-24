@@ -50,7 +50,7 @@ router.get('/api/workouts', (req, res) => {
 
 //Find workout plan (stats -page)
 
-router.get('/api/stats', (req, res) => {
+router.get('/api/workouts/rage', (req, res) => {
   workout.find({}, (err, data) => {
     if (err) {
       res.send(err);
