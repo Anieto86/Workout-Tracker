@@ -1,6 +1,7 @@
 // Practice the routing folloow the exercise 26. 
 const router = require("express").Router();
 const workout = require("../models/workout.js");
+const mongojs = require("mongojs");
 //Routes
 
 // This routes are sedingned using the api.js folder in public!!
@@ -11,7 +12,7 @@ router.put('/api/workouts/:id', (req, res) => {
   console.log(req.params.id);
   workout.updateOne(
     {
-      id:req.params.id   //the problem was _id when I remove "_" in id the 
+      id: mongojs.ObjectId(req.params.id)   //the problem was _id when I remove "_" in id the 
     }
     , (err, data) => {
       if (err) {
@@ -50,7 +51,7 @@ router.get('/api/workouts', (req, res) => {
 
 //Find workout plan (stats -page)
 
-router.get('/api/workouts/rage', (req, res) => {
+router.get('/api/workouts/range', (req, res) => {
   workout.find({}, (err, data) => {
     if (err) {
       res.send(err);
