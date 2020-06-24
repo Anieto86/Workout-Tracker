@@ -12,7 +12,7 @@ router.put('/api/workouts/:id', (req, res) => {
   console.log(req.params.id);
   workout.updateOne(
     {
-      id: mongojs.ObjectId(req.params.id)   //the problem was _id when I remove "_" in id the 
+      _id: mongojs.ObjectId(req.params.id)   //the problem was _id when I remove "_" in id the 
     }
     , (err, data) => {
       if (err) {
